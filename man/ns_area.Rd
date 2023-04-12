@@ -21,7 +21,7 @@ lat <- c(10.0342, 10.1028) ### lon, lat in wgs84 reference system
 mycoords <- data.frame(lon,lat)
 polyg <- sf::st_polygon(list(cbind(mycoords$lon[c(1,2,2,1,1)], mycoords$lat[c(1,1,2,2,1)])))
 polyc <- sf::st_sfc(polyg, crs = 4326) ### set appropriate crs
-sf::st_transform(polyc, crs = 32632) ### transform to metric crs appropriate for area
+polyc <- sf::st_transform(polyc, crs = 32632) ### transform to metric crs appropriate for area
 a <- ns_area(polyc) ### returns area in square meters
 
 }
