@@ -2,20 +2,26 @@
 % Please edit documentation in R/ns_florichness.R
 \name{ns_florichness}
 \alias{ns_florichness}
-\title{Floristic richness}
+\title{Calculate floristi richness from occurrence records}
 \usage{
-ns_florichness(ns_df)
+ns_florichness(ns_sf, ns_label)
 }
 \arguments{
-\item{ns_df}{a dataframe with at least two columns, viz. combination and esotic}
+\item{ns_sf}{a dataframe with at least two columns, viz. closest_match and a_status.
+Column \code{closest_match} contains scientific names standarised according the
+Checklist of the Italian flora. Column \code{a_status} contain the alien status
+according to the same Checklist.}
+
+\item{ns_label}{a character string to serve as label for the data in the second column
+of the output dataframe.}
 }
 \value{
-a dataframe with one row and five columns containing number of records,
+a dataframe with six rows and two columns containing number of records,
 number of species, number of native, and number of casual, naturalised, and invasive aliens.
 }
 \description{
-Floristic richness
+Calculate floristi richness from occurrence records
 }
 \examples{
-ns_florichness(floratos_south)
+ns_florichness(floratos_south,"south")
 }
