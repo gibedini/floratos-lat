@@ -29,6 +29,7 @@ floratos_ckl <- filter(ckl_data,TOS > '') %>%
   mutate(p_status = sub(pattern = "^\\(([A-Z]{1,2})\\)*$",replacement = "\\1", x = p_status)) %>%
   mutate(a_status = sub(pattern = "([A-Z])\\)$",replacement = "\\1", x = a_status)) %>%
   mutate(a_status = sub(pattern = "A TOS", replacement = "A", x = a_status)) %>%
+  mutate(a_status = replace(a_status, a_status == "", "native")) %>%
   select(codice_unico,famiglia_checklist,END,C,ESO,entita,lista_rossa,p_status,a_status)
 
 
