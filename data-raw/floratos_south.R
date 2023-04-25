@@ -6,9 +6,7 @@ library(checkRlistit)
 library(here)
 
 ### read in csv data as sf object with datum epsg:32632
-floratos_south <- read_csv(here("data-raw","floratos_south.csv")) %>%
-  st_as_sf(coords = c("lon_wgs84","lat_wgs84"),crs = 32632)
-st_crs(floratos_south)$wkt <- gsub("°|º", "\\\u00b0", st_crs(floratos_south)$wkt)
+floratos_south <- read_csv(here("data-raw","floratos_south.csv"))
 u <- unique(floratos_south$combination)
 closest_names <- checkRlistit::nameStand(u)
 floratos_south <- dplyr::left_join(floratos_south,closest_names,
@@ -16,4 +14,10 @@ floratos_south <- dplyr::left_join(floratos_south,closest_names,
                                    keep = TRUE) %>%
   dplyr::left_join(floratos_ckl, by = c("closest_match" = "entita"))
 
+
+floratos_south <- st_as_sf(floratos_south,
+                           coords = c("lon_wgs84","lat_wgs84"),
+                           crs = 32632,
+                           remove = FALSE)
+st_crs(floratos_south)$wkt <- gsub("°|º", "\\\u00b0", st_crs(floratos_south)$wkt)
 usethis::use_data(floratos_south, overwrite = TRUE)
