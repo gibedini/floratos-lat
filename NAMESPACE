@@ -3,6 +3,5 @@
 export("%>%")
 export(ns_area)
 export(ns_epsg)
-export(ns_exotic)
 export(ns_florichness)
 importFrom(magrittr,"%>%")

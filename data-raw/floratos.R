@@ -1,5 +1,5 @@
 ## code to prepare `floratos` dataset goes here
-## code to prepare `floratos_north` dataset goes here
+
 library(sf)
 library(dplyr)
 library(readr)
@@ -20,10 +20,12 @@ floratos <- dplyr::inner_join(floratos_nost,closest_names,
                 settore,epoca,
                 p_status,a_status)
 
-# floratos <- sf::st_as_sf(floratos,
-#                          coords = c("lon_wgs84","lat_wgs84"),
-#                          crs = 32632,
-#                          remove = FALSE)
-# sf::st_crs(floratos)$wkt <- gsub("°|º", "\\\u00b0", st_crs(floratos)$wkt)
+mycrs <- ns_epsg()
 
-usethis::use_data(floratos, overwrite = TRUE)
+floratos_sf <- sf::st_as_sf(floratos,
+                         coords = c("lon_wgs84","lat_wgs84"),
+                         crs = mycrs,
+                         remove = FALSE)
+sf::st_crs(floratos_sf)$wkt <- gsub("°|º", "\\\u00b0", st_crs(floratos_sf)$wkt)
+
+usethis::use_data(floratos, floratos_sf, overwrite = TRUE)

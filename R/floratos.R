@@ -1,9 +1,15 @@
-#' Data included in floratosLatGr
+#' Floristic records for Tuscany
 #'
-#' A dataset containing the georeferenced floristic records for Tuscany
+#' A dataframe containing the floristic records for Tuscany extracted
+#' from Wikiplantbase #Toscana (bot.biologia.unipi.it/wpb/toscana), with scientific
+#' names standardised against the Checklist of the Italian flora
+#' (https://dryades.units.it/floritaly/). The presence status and alien status are
+#' also included. This dataset is not spatially-enabled. If a spatially-enabled version
+#' is needed, use \code{floratos_sf}.
 #'
-#' @format  8 columns and 358848 records:
+#' @format  9 columns and 358848 records:
 #' \describe{
+#'   \item{combination}{a character string, original scientific name as recorded in Wikiplantbase #Toscana}
 #'   \item{entita}{a character string, current scientific name as per Checklist of the Italian flora}
 #'   \item{anno_reperto}{a character string, year of record (four digits)}
 #'   \item{lat_wgs84}{a number, the latitude of the record (decimal degrees, epsg:4326)}

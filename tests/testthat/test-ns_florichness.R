@@ -1,3 +1,3 @@
-test_that("return dataframe has six columns", {
-  expect_equal(ncol(ns_florichness(floratos_south,"south")), 2)
+test_that("return dataframe has two columns", {
+  expect_equal(ncol(ns_florichness(floratos,"global")), 2)
 })

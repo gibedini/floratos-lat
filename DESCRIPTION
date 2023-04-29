@@ -1,6 +1,6 @@
 Package: floratosLatGr
 Title: Flora Toscana Latitudinal Gradient
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Gianni", "Bedini", , "gianni.bedini@unipi.it", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))

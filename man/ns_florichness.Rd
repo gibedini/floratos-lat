@@ -23,5 +23,5 @@ number of species, number of native, and number of casual, naturalised, and inva
 Calculate floristi richness from occurrence records
 }
 \examples{
-ns_florichness(floratos_south,"south")
+ns_florichness(floratos,"global")
 }
